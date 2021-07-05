@@ -1,0 +1,15 @@
+
+<mat-sidenav-container style="background-color: #fff;">
+    <mat-sidenav #drawer mode="over">
+        <app-sidenav></app-sidenav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div>
+            <app-header [drawerRef]="drawer"></app-header>
+            <main>
+                <router-outlet></router-outlet>
+            </main>
+            <app-footer></app-footer>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

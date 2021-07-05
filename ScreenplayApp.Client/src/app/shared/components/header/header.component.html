@@ -1,0 +1,23 @@
+<header>
+    <div class="menu" (click)="this.drawerRef.toggle()">
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 385 385" style="enable-background:new 0 0 385 385;" xml:space="preserve">
+        <g>
+            <path d="M12,120.3h360.9c6.6,0,12-5.4,12-12c0-6.6-5.4-12-12-12H12c-6.6,0-12,5.4-12,12S5.4,120.3,12,120.3z"/>
+            <path d="M372.9,264.7H12c-6.6,0-12,5.4-12,12c0,6.6,5.4,12,12,12h360.9c6.6,0,12-5.4,12-12C385,270.1,379.6,264.7,372.9,264.7z"/>
+            <path d="M252.6,180.5H12c-6.6,0-12,5.4-12,12c0,6.6,5.4,12,12,12h240.6c6.6,0,12-5.4,12-12C264.7,185.8,259.3,180.5,252.6,180.5z"
+                />
+        </g>
+        </svg>
+    </div>
+    <div>
+        <h2>WeRateIt</h2>
+    </div>
+    <div>
+        <!--Here, we can check if user authenticated and dynamically render userIcon/signinButton-->
+        <button *ngIf="!userIsAuthenticated" mat-button color="primary" routerLink="/auth/signin">Sign In</button>
+        <button *ngIf="userIsAuthenticated" mat-button color="primary" (click)="onSignOut()"> SignOut </button>
+         
+    </div>
+
+</header>

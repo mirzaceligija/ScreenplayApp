@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*=== GLOBAL TEMPLATE ELEMENTS ===*/
+
+*
+    padding:0px
+    margin:0px
+    box-sizing: border-box
+
+html, body
+    height: 100%
+    overflow-x: hidden
+    background-color: #fff
+
+body
+    font-family: 'Montserrat', sans-serif
+    font-weight: 500
+    overflow-x: hidden
+    font-size: 14px
+    line-height: 1.5
+    color: #222
+    word-break: normal
+    user-select: none
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    -webkit-tap-highlight-color: transparent
+    -webkit-touch-callout: none
+    -webkit-overflow-scrolling: touch
+    scroll-behavior: smooth
+
+/*=== SCROLLBAR ===*/
+
+::-webkit-scrollbar
+    width: 5px
+::-webkit-scrollbar-track
+    background-color: #f6f6f6
+::-webkit-scrollbar-thumb 
+    background: #222
+    border-radius: 25px
+    &:hover, &:window-inactive 
+        background: #222
+
+/* === THEME LAYOUTS === */
+
+.grid
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    grid-gap: 2vw
+    
+@media only screen and (max-width: 768px)
+    .grid
+        grid-template-columns: 1fr
+
+    
+@media only screen and (min-width: 768px) and (max-width: 1024px)
+    .grid
+        grid-template-columns: 1fr 1fr
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px)
+    .grid
+        grid-template-columns: 1fr 1fr 1fr

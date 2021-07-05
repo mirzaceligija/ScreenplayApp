@@ -1,0 +1,5 @@
+<app-screenplay-table [screenplays]="this.screenplays"></app-screenplay-table>
+<br>
+<div style="text-align: center;" *ngIf="this.screenplays.length % 10 == 0">
+    <button mat-flat-button color="accent" (click)="onLoadMore()">Load more</button>
+</div>

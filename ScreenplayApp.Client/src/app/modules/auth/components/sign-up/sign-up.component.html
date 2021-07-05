@@ -1,0 +1,17 @@
+<section id="card">
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+            <input matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
+            <span class="error" *ngIf="emailInput.invalid && emailInput.touched">Please enter a valid email.</span>
+            <input matInput name="password" ngModel type="password" placeholder="Password" #passwordInput="ngModel" required>
+            <span class="error" *ngIf="passwordInput.invalid && passwordInput.touched">Please enter a valid password.</span>
+            <input matInput name="confirmPassword" ngModel type="password" placeholder="Confirm Password" #confirmPasswordInput="ngModel" required>
+            <span class="error" *ngIf="passwordInput.value != confirmPasswordInput.value && confirmPasswordInput.touched">Password don't match</span>
+            <br>
+            <button mat-flat-button color="primary" type="submit" *ngIf="!isLoading">SignUp</button>
+        </form>
+        <br>
+        <p>Already have an account? <a routerLink="/auth/signin">Sign In</a> here</p>
+    </div>
+</section>

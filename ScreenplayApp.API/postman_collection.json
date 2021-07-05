@@ -1,0 +1,309 @@
+{
+	"info": {
+		"_postman_id": "1d9409e8-9fea-4b58-af6a-7392bb4ead3b",
+		"name": "REST API ScreenplayApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register User (Create User)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\",\n    \"passwordConfirmation\": \"{{password}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User (Create Session)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"{{email}}\",\n    \"password\": \"{{password}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/sessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout User (Delete Session)",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-refresh",
+						"value": "{{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/sessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sessions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-refresh",
+						"value": "{{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/sessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+
+		{
+			"name": "Update Screenplay",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-refresh",
+						"value": "{{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Movie Title\",\n    \"products\": [\n { \"product\": \"{{productId}}\" , \"qty\": 1 }, \n { \"product\": \"{{productId}}\" , \"qty\": 1  } \n]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/shopping/{{listId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"shopping",
+						"{{listId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Screenplay",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-refresh",
+						"value": "{{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Movie Title 1\",\n  \"description\": \"Movie Description 1\",\n  \"category\": \"60bf482254e2953a9c625ec0\",\n \"photoUrl\": \"http://localhost:3000/api/v1/images/image.jpg\",\n \"releaseDate\": \"2002-12-09T00:00:00Z\",\n \"rate\": 4.9,\n \"casting\": [\n { \"actor\": \"60bf49090a6ea644f07a51d9\" , \"role\": \"Main actor\" }, \n { \"actor\": \"60bf49270a6ea644f07a51da\", \"role\": \"Main actor\"  } \n]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/screenplays",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"screenplays"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Screenplay",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-refresh",
+						"value": "{{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/screenplays/{{:id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"screenplays",
+						"{{:id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Actor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-refresh",
+						"value": "{{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"firstName\",\n  \"lastName\": \"lastName \",\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/actors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"actors"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{accessToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "email",
+			"value": "email"
+		}
+	]
+}

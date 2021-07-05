@@ -1,0 +1,28 @@
+.grid__container-2
+    display: grid
+    grid-template-columns: 2fr 3fr
+
+    .content
+        padding: 2rem
+
+        h2
+            font-weight: bold
+            margin-bottom: 1rem
+
+    .flex__container
+        display: flex
+        align-content: center
+
+    div
+        svg
+            width:20px
+            margin-right:10px
+        
+        img
+            width:100%
+            border-radius: 25px
+
+    
+@media only screen and (max-width: 1024px)
+    .grid__container-2
+        grid-template-columns: 1fr

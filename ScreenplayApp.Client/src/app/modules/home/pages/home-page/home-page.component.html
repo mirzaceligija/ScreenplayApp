@@ -1,0 +1,19 @@
+<section>
+    <div>
+        <app-searchbar (newSearchEvent)="onSearch($event)"></app-searchbar>
+    </div>
+    
+    <button mat-button *ngFor="let category of categories" class="btn-small" style="margin-top:50px"
+        [ngClass]="(selectedCategoryId == category._id) ? 'tgl-primary' : 'tgl-default'" (click)="toggleSelect(category._id)">
+            {{category?.name}}
+    </button>
+
+    <div style="margin: 50px 0">
+        <app-screenplay-list [screenplays]="screenplays"></app-screenplay-list>
+    </div>
+    
+    <div style="text-align: center;" *ngIf="this.screenplays.length % 10 == 0">
+        <button mat-flat-button color="accent" (click)="onLoadMore()">Load more</button>
+    </div>
+</section>
+

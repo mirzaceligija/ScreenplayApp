@@ -1,0 +1,16 @@
+<div>
+    <table style="width:100%">
+        <tr>
+            <th>ID</th>
+            <th>Movie Title</th>
+            <th>Rating</th>
+            <th>Your Rating</th>
+        </tr>  
+        <tr *ngFor="let screenplay of screenplays; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{this.screenplay?.title}}</td>
+            <td>{{this.screenplay?.rate | number : '1.2-2'}}</td>
+            <td><app-start-rating [screenplayId]="this.screenplay?._id" ></app-start-rating></td>
+        </tr>
+    </table>
+</div>
