@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+a, a:visited, a:active, a:focus{
+  text-decoration: none;
+}
