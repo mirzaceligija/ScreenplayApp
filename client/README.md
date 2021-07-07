@@ -1,4 +1,33 @@
-# Getting Started with Create React App
+# Note za developere koji budu pregledali task
+
+Ovo je progress unutar 24h rata i aplikacija ima dosta nedostataka:
+
+##### Error Interceptor
+
+Error interceptor koji presreće response koji dobijamo od API-a i prikazuje ga adekvatno u aplikaciji
+
+##### Auth status
+
+Trenutno se refresh i access tokeni snimaju u localstorage i ako nešto ima u localstorage znači je korisnik auth.
+Međutim, ovako se ne smije raditi. Refresh token se treba snimiti u httponly cookie
+Iako nije zahtijevano zadatkom, treba napraviti auth interceptor koji u headers dodaje 'Bearer ' + accessToken
+kako bi se mogoa poslati autorizovan req na api. Također, super je praksa da imamo auto authentikaciju korisnika,
+ukoliko nije uradio logout. Kada se aplikacija starta, može se provjeriti da li postoje podaci u localStorage i cookies,
+ili poslati GET req na /api/v1/sessions i na osnovu toga, ukoliko je validna sesija, automatski autorizovati korisnika.
+
+##### State management
+
+Poprilično je "haotično" bez redux-a, obično je super praksa da imamo centralizovani sistem za state management
+(slično kao servisu u Angular2+). Tako bismo mogli imati podatke da li je korisnik auth kao prop u nekoj komponenti
+i dinamički ga renderovati, jer deeply nested props binding može biti veoma konfuzno.
+
+##### Feedback
+
+Ako želite možete mi ostaviti feedback na najvažnije stvari kako bih mogao ispraviti.
+Ukoliko je redux i redux-thunk mandatoran, kao što sam naveo u mail-u, trebaće mi 1 sedmica da se podsjetim svih stvari
+vezanih za to.
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
