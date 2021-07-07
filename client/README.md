@@ -1,32 +1,35 @@
 # Note za developere koji budu pregledali task
 
-Ovo je progress unutar 24h rata i aplikacija ima dosta nedostataka:
+Ovo je progress unutar 24h i aplikacija ima dosta nedostataka. Razlog slanja "nedovršene" aplikacije je dobijanje inicijalnog feedbacka obzirom da nisam duže vremena ništa radio u react-u. Inicijalni feedback bi trebao sadržavati "ugrubo" promjene dovoljne da tehnički intervju, ukoliko trenutna implementacija nije dovoljna.
 
-##### Error Interceptor
+Trenutna implementacija ima slijedeće nedostatke: 
 
-Error interceptor koji presreće response koji dobijamo od API-a i prikazuje ga adekvatno u aplikaciji
+#### Error Interceptor
 
-##### Auth status
+Error interceptor koji presreće response koji dobijamo od API-a i prikazuje ga adekvatno u aplikaciji, kako se aplikacija
+ne bi srušila.
+
+#### Auth status
 
 Trenutno se refresh i access tokeni snimaju u localstorage i ako nešto ima u localstorage znači je korisnik auth.
-Međutim, ovako se ne smije raditi. Refresh token se treba snimiti u httponly cookie
+Međutim, ovako se ne smije raditi. Refresh token se treba snimiti u httponly cookie.
 Iako nije zahtijevano zadatkom, treba napraviti auth interceptor koji u headers dodaje 'Bearer ' + accessToken
-kako bi se mogoa poslati autorizovan req na api. Također, super je praksa da imamo auto authentikaciju korisnika,
+kako bi se mogao poslati autorizovan req na api. Također, super je praksa da imamo auto authentikaciju korisnika,
 ukoliko nije uradio logout. Kada se aplikacija starta, može se provjeriti da li postoje podaci u localStorage i cookies,
 ili poslati GET req na /api/v1/sessions i na osnovu toga, ukoliko je validna sesija, automatski autorizovati korisnika.
 
-##### State management
+#### State management
 
-Poprilično je "haotično" bez redux-a, obično je super praksa da imamo centralizovani sistem za state management
+Poprilično je "haotično" bez redux-a, bilo bi super da imamo centralizovani sistem za state management
 (slično kao servisu u Angular2+). Tako bismo mogli imati podatke da li je korisnik auth kao prop u nekoj komponenti
 i dinamički ga renderovati, jer deeply nested props binding može biti veoma konfuzno.
 
-##### Feedback
+#### Feedback
 
-Ako želite možete mi ostaviti feedback na najvažnije stvari kako bih mogao ispraviti.
-Ukoliko je redux i redux-thunk mandatoran, kao što sam naveo u mail-u, trebaće mi 1 sedmica da se podsjetim svih stvari
-vezanih za to.
+Ukoliko je redux i redux-thunk mandatoran, kao što sam naveo u mail-u, trebaće mi sedmica da se podsjetim svih stvari vezanih za to.
 
+
+### Good luck
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
