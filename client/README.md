@@ -4,25 +4,32 @@ Ovo je progress unutar 24h i aplikacija ima dosta nedostataka. Razlog slanja "ne
 
 Trenutna implementacija ima slijedeće nedostatke: 
 
-#### Error Interceptor
+### Error Interceptor
 
 Error interceptor koji presreće response koji dobijamo od API-a i prikazuje ga adekvatno u aplikaciji, kako se aplikacija
 ne bi srušila.
 
-#### Auth status
+### Auth status
 
-Trenutno se refresh i access tokeni snimaju u localstorage i ako nešto ima u localstorage znači je korisnik auth.
-Međutim, ovako se ne smije raditi. Refresh token se treba snimiti u httponly cookie.
-Iako nije zahtijevano zadatkom, treba napraviti auth interceptor koji u headers dodaje 'Bearer ' + accessToken
-kako bi se mogao poslati autorizovan req na api. Također, super je praksa da imamo auto authentikaciju korisnika,
+Trenutno se refresh i access tokeni snimaju u localstorage i ako nešto ima u localstorage znači da je korisnik autorizovan.
+Međutim, ovako se ne smije raditi. Refresh token se treba snimiti u httponly cookie, a jwt se može snimiti u localStorage.
+Iako nije zahtijevano zadatkom, trebalo bi napraviti auth interceptor koji u headers dodaje 'Bearer ' + accessToken
+kako bi se mogao poslati autorizovan req na api. Također, super je praksa da imamo automatsku autentikaciju korisnika,
 ukoliko nije uradio logout. Kada se aplikacija starta, može se provjeriti da li postoje podaci u localStorage i cookies,
 ili poslati GET req na /api/v1/sessions i na osnovu toga, ukoliko je validna sesija, automatski autorizovati korisnika.
+
+### Route guard
+
+Iako nema posebnih ruta koje trebaju biti zaštićene i vidljive samo autorizovanim korisnicima, možemo osigurati da korisnik,
+ukoliko je autorizovan, ne može otići na Login/Register guard.
 
 #### State management
 
 Poprilično je "haotično" bez redux-a, bilo bi super da imamo centralizovani sistem za state management
-(slično kao servisu u Angular2+). Tako bismo mogli imati podatke da li je korisnik auth kao prop u nekoj komponenti
-i dinamički ga renderovati, jer deeply nested props binding može biti veoma konfuzno.
+(slično servisu u Angular2+). Tako bismo mogli imati podatke da li je korisnik auth kao prop u nekoj komponenti
+i dinamički ga renderovati po potrebi. Na taj način, jedna komponenta može promijeniti state, a ta bi se promjena
+poslala svima koji su zainteresovani. Na primjer, klikom na logout, navigacija može renderovati dinamički druge stavke.
+Deeply nested props binding može biti veoma konfuzno, pogotovo u velikim aplikacijama.
 
 #### Feedback
 
